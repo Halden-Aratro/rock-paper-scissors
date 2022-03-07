@@ -1,3 +1,7 @@
+let computerScore = 0;
+let playerScore = 0;
+let roundWinner = '';
+
 //player chooses paper, rock or scissors
 let choice = prompt('Please, make your choice by writing "rock", "paper" or "scissors"');
 const playerSelection = choice;
@@ -23,17 +27,36 @@ function playRound (playerSelection, computerSelection) {
     playerSelection = choice.toLowerCase();
     computerSelection = computerPlay().toLowerCase();
     if (playerSelection === computerSelection) {
-        alert("Tie")
+        roundWinner = ("Tie")
     } else if (
         (playerSelection === "rock" && computerSelection === "paper") ||
         (playerSelection === "paper" && computerSelection === "scissors") ||
         (playerSelection === "scissors" && computerSelection === "rock")
     ) {
-        alert("the computer wins")
+        computerScore++;
+        roundWinner = 'computer';
+        return roundWinner;
     } else {
-        alert ("you win")
+        playerScore++;
+        roundWinner = 'player';
+        return roundWinner;
     }; 
 }
 
+console.log(roundWinner);
+
 //create a game of 5 rounds
-function game ()
+function game () {
+    for(i = 0; i < 5; i++) {
+        playRound(playerSelection, computerSelection);
+        console.log(roundWinner);
+    }
+}
+
+function updateScore () {
+    if (roundWinner === "Tie") {
+        console.log("tie")
+    }
+
+    console.log(roundWinner)
+}
