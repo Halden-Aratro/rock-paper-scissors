@@ -47,7 +47,14 @@ function playRound (playerSelection, computerSelection) {
 function game () {
     for(i = 0; i < 5; i++) {
         playRound(playerSelection, computerSelection);
-        return roundWinner;
+        //return roundWinner;
+        if (roundWinner === "Tie") {
+            console.log("Tie");
+        } else if (computerScore > playerScore) {
+            console.log("You lose");
+        } else {
+            console.log("You win!");
+        }
     }
 }
 
