@@ -1,7 +1,19 @@
             //game begins
             //round 1 players choose their moves
-            playRound (playerSelection, computerSelection) {
-
+            function playRound (playerSelection, computerSelection) {
+                playerSelection = choice.toLowerCase();
+                computerSelection = computerPlay().toLowerCase();
+                if (playerSelection === computerSelection) {
+                    alert("Tie")
+                } else if (
+                    (playerSelection === "rock" && computerSelection === "paper") ||
+                    (playerSelection === "paper" && computerSelection === "scissors") ||
+                    (playerSelection === "scissors" && computerSelection === "rock")
+                ) {
+                    alert("the computer wins")
+                } else {
+                    alert ("you win")
+                } 
             }
 
                 //human chooses paper, rock or scissors
@@ -11,7 +23,7 @@
                 //computer randomly returns paper, rock or scissors
             const computerSelection = computerPlay();
 
-            computerPlay() {
+            function computerPlay() {
                 let randomNum = Math.floor(Math.random() * 3);
                 switch(randomNum) {
                     case 0:
@@ -24,6 +36,8 @@
                         return "scissors";
                 }
             }
+
+            console.log(playRound(playerSelection, computerSelection));
 
                 //the winner is declared
 
