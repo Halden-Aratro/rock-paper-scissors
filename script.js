@@ -1,14 +1,9 @@
-//game begins
-//round 1 players choose their moves
-
-
-//human chooses paper, rock or scissors
+//player chooses paper, rock or scissors
 let choice = prompt('Please, make your choice by writing "rock", "paper" or "scissors"');
 const playerSelection = choice;
-            
-                //computer randomly returns paper, rock or scissors
+     
+//computer randomly selects 1 of the 3 choices
 const computerSelection = computerPlay();
-
 function computerPlay() {
     let randomNum = Math.floor(Math.random() * 3);
     switch(randomNum) {
@@ -23,8 +18,7 @@ function computerPlay() {
     }
 }
 
-console.log(playRound(playerSelection, computerSelection));
-
+//a round is played (need to just play and not display any result to screen)
 function playRound (playerSelection, computerSelection) {
     playerSelection = choice.toLowerCase();
     computerSelection = computerPlay().toLowerCase();
@@ -39,8 +33,7 @@ function playRound (playerSelection, computerSelection) {
     } else {
         alert ("you win")
     }; 
-    console.log(playerSelection);
-    console.log(computerSelection);
 }
 
-
+//create a game of 5 rounds
+function game ()
