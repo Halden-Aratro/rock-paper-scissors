@@ -43,15 +43,15 @@ function playRound (playerSelection, computerSelection) {
     }; 
 }
 
-console.log(roundWinner);
-
 //create a game of 5 rounds
 function game () {
     for(i = 0; i < 5; i++) {
         playRound(playerSelection, computerSelection);
-        console.log(roundWinner);
+        return roundWinner;
     }
 }
+
+console.log(game());
 
 function updateScore () {
     if (roundWinner === "Tie") {
