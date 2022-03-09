@@ -35,8 +35,6 @@ function computerPlay() {
 
 //a round is played (need to just play and not display any result to screen)
 function playRound (playerSelection, computerSelection) {
-    computerSelection = computerPlay().toLowerCase(); console.log(computerSelection);
-
     if (playerSelection === computerSelection) {
         roundWinner = ("Tie")
     } else if (
