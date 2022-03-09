@@ -7,6 +7,9 @@ function playerPlay() {
     let selection = prompt("rock, paper, scissors?");
     return selection.toLowerCase();
 }
+let playerSelection = playerPlay();
+
+console.log(playerSelection);
 
 //function playerChooses() {
     //choice = prompt('rock paper scissors');
@@ -32,9 +35,8 @@ function computerPlay() {
 
 //a round is played (need to just play and not display any result to screen)
 function playRound (playerSelection, computerSelection) {
-    let playerSelection = playerPlay();
-    console.log(playerSelection);
     computerSelection = computerPlay().toLowerCase(); console.log(computerSelection);
+
     if (playerSelection === computerSelection) {
         roundWinner = ("Tie")
     } else if (
@@ -56,9 +58,6 @@ function playRound (playerSelection, computerSelection) {
     }; 
 }
 
-console.log(playerScore);
-console.log(computerScore);
-
 //create a game of 5 rounds
 function game () {
     for(i = 0; i < 5; i++) {
@@ -74,7 +73,7 @@ function game () {
     }
 }
 
-console.log(game());
+/* console.log(game()); */
 
 /* function updateScore () {
     if (roundWinner === "Tie") {
