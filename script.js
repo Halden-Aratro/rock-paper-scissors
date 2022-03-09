@@ -3,7 +3,10 @@ let playerScore = 0;
 let roundWinner = '';
 
 //player chooses paper, rock or scissors
-let playerSelection = prompt('Please, make your choice by writing "rock", "paper" or "scissors"');
+function playerPlay() {
+    let selection = prompt("rock, paper, scissors?");
+    return selection.toLowerCase();
+}
 
 //function playerChooses() {
     //choice = prompt('rock paper scissors');
@@ -12,7 +15,7 @@ let playerSelection = prompt('Please, make your choice by writing "rock", "paper
 //}
 
 //computer randomly selects 1 of the 3 choices
-const computerSelection = computerPlay();
+let computerSelection = computerPlay();
 function computerPlay() {
     let randomNum = Math.floor(Math.random() * 3);
     switch(randomNum) {
@@ -29,7 +32,8 @@ function computerPlay() {
 
 //a round is played (need to just play and not display any result to screen)
 function playRound (playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase(); console.log(playerSelection);
+    let playerSelection = playerPlay();
+    console.log(playerSelection);
     computerSelection = computerPlay().toLowerCase(); console.log(computerSelection);
     if (playerSelection === computerSelection) {
         roundWinner = ("Tie")
@@ -60,22 +64,22 @@ function game () {
     for(i = 0; i < 5; i++) {
         playRound(playerSelection, computerSelection);
         //return roundWinner;
-        if (roundWinner === "Tie") {
+        /* if (roundWinner === "Tie") {
             console.log("Tie");
         } else if (computerScore > playerScore) {
             console.log("You lose");
         } else {
             console.log("You win!");
-        }
+        } */
     }
 }
 
 console.log(game());
 
-function updateScore () {
+/* function updateScore () {
     if (roundWinner === "Tie") {
         console.log("tie")
     }
 
     console.log(roundWinner)
-}
+}  */
