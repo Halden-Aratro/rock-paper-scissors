@@ -1,5 +1,8 @@
+let computerScore = 0;
+let playerScore = 0;
+let result = '';
 
-let playerSelection = "rock";
+let playerSelection = "paper";
 const computerSelection = computerPlay();
 
 console.log("playerSelection: " + playerSelection);
@@ -24,40 +27,60 @@ console.log("computerPlay: " + computerSelection);
 
 
 function playRound(playerSelection, computerSelection) {
+    const TIE_MSG = "Tie";
+    const WIN_MSG = "You win";
+    const LOSE_MSG = "You lose";
 /*     let playerSelection = playerSelection.toLowerCase();
  */    if ((playerSelection === "rock" && computerSelection === "rock") ||
            (playerSelection === "paper" && computerSelection === "paper") ||
            (playerSelection === "scissors" && computerSelection === "scissors")) {
-        return "tie";
+        console.log(WIN_MSG);
+        playerScore += 1;
     } else if ((playerSelection === "rock" && computerSelection === "paper") ||
                (playerSelection === "paper" && computerSelection === "scissors") ||
                (playerSelection === "scissors" && computerSelection === "rock")) {
-        return "you lose";
+        console.log(LOSE_MSG);
+        computerScore += 1;
     } else if ((playerSelection === "rock" && computerSelection === "scissors") ||
                (playerSelection === "paper" && computerSelection === "rock") ||
                (playerSelection === "scissors" && computerSelection === "paper")) {
-        return "you win";
+        console.log(TIE_MSG);
     }
 }
 
 console.log("playRound: " + playRound(playerSelection, computerSelection));
 
-let count = 0;
-
+function resetScores() {
+    playerScore = 0;
+    computerScore = 0;
+}
+ 
 function game() {
+    resetScores();
+
     for (let i = 0; i < 5; i++) {   
-        console.log(count+=1);
-        console.log(playRound(playerSelection, computerSelection));
-        gameScore
-    }
-    
+        console.log(`round ${i + 1}:`);
+        playRound(playerSelection, computerSelection);
+    } 
+
+    console.log("Final score: ");
+
+      
 }
 
 console.log(game());
 
-let computerScore = 0;
-let playerScore = 0;
 
-function calcWinner() {
+
+function declareWinner() {
+    const SCORES = `player score: ${playerScore} | computer score: ${computerScore}`;
+
+    if (playerScore > computerScore) {
+        console.log("You won!" + SCORES);
+    } else if (playerScore < computerScore) {
+        console.log("You lost!" + SCORES);
+    } else {
+        console.log("This is not possible" + SCORES);
+    }
 
 }
