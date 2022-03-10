@@ -2,36 +2,34 @@ let computerScore = 0;
 let playerScore = 0;
 let result = '';
 
-let playerSelection = "paper";
-const computerSelection = computerPlay();
-
-console.log("playerSelection: " + playerSelection);
+let computerSelection;
 
 function computerPlay() {
     let randomNum = Math.floor(Math.random() *3);
     switch(randomNum) {
         case 0:
-            return "rock";
+            return computerSelection = "rock";
             break;
         case 1:
-            return "paper";
+            return computerSelection = "paper";
             break;
         case 2:
-            return "scissors";
+            return computerSelection = "scissors";
             break;
     }
 }
 
-console.log("computerPlay: " + computerSelection);
-
-
+function playerPlay() {
+    let playerSelection = prompt("chose rock, paper or scissors");
+    return playerSelection;
+}
 
 function playRound(playerSelection, computerSelection) {
     const TIE_MSG = "Tie";
     const WIN_MSG = "You win";
     const LOSE_MSG = "You lose";
-/*     let playerSelection = playerSelection.toLowerCase();
- */    if ((playerSelection === "rock" && computerSelection === "rock") ||
+
+    if ((playerSelection === "rock" && computerSelection === "rock") ||
            (playerSelection === "paper" && computerSelection === "paper") ||
            (playerSelection === "scissors" && computerSelection === "scissors")) {
         console.log(WIN_MSG);
@@ -48,7 +46,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-console.log("playRound: " + playRound(playerSelection, computerSelection));
 
 function resetScores() {
     playerScore = 0;
@@ -58,9 +55,11 @@ function resetScores() {
 function game() {
     resetScores();
 
+    
+
     for (let i = 0; i < 5; i++) {   
         console.log(`round ${i + 1}:`);
-        playRound(playerSelection, computerSelection);
+        playRound(playerPlay(), computerPlay());
     } 
 
     console.log("Final score: ");
@@ -68,7 +67,6 @@ function game() {
       
 }
 
-console.log(game());
 
 
 
@@ -84,3 +82,5 @@ function declareWinner() {
     }
 
 }
+
+game();
