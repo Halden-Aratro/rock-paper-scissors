@@ -25,11 +25,17 @@ console.log("computerPlay: " + computerSelection);
 
 function playRound(playerSelection, computerSelection) {
 /*     let playerSelection = playerSelection.toLowerCase();
- */    if (playerSelection === "rock" && computerSelection === "rock") {
+ */    if ((playerSelection === "rock" && computerSelection === "rock") ||
+           (playerSelection === "paper" && computerSelection === "paper") ||
+           (playerSelection === "scissors" && computerSelection === "scissors")) {
         return "tie";
-    } else if (playerSelection === "rock" && computerSelection === "paper") {
+    } else if ((playerSelection === "rock" && computerSelection === "paper") ||
+               (playerSelection === "paper" && computerSelection === "scissors") ||
+               (playerSelection === "scissors" && computerSelection === "rock")) {
         return "you lose";
-    } else if (playerSelection === "rock" && computerSelection === "scissors") {
+    } else if ((playerSelection === "rock" && computerSelection === "scissors") ||
+               (playerSelection === "paper" && computerSelection === "rock") ||
+               (playerSelection === "scissors" && computerSelection === "paper")) {
         return "you win";
     }
 }
@@ -42,8 +48,16 @@ function game() {
     for (let i = 0; i < 5; i++) {   
         console.log(count+=1);
         console.log(playRound(playerSelection, computerSelection));
-        
+        gameScore
     }
+    
 }
 
 console.log(game());
+
+let computerScore = 0;
+let playerScore = 0;
+
+function calcWinner() {
+
+}
