@@ -22,17 +22,20 @@ function playerPlay() {
     let playerSelection = prompt("chose rock, paper or scissors");
     playerSelection = playerSelection.toLowerCase();
 
-    if ((playerSelection =! "rock") || 
-        (playerSelection =! "paper") || 
-        (playerSelection =! "scissors")) {
+    //Check for spelling mistakes (loop and if conditionals do not work yet)
+/*     if ((playerSelection !== "rock") ||
+        (playerSelection !== "paper") ||
+        (playerSelection !== "scissors")) {
             prompt("only enter rock, paper or scissors without spelling mistakes")
-        }
-
+        } else {
+            prompt("chose rock, paper or scissors");
+        }; */
+ 
     return playerSelection;
 }
 
 function playRound(playerSelection, computerSelection) {
-    const SHOW_CHOICES = `(Player chose: ${playerSelection}  and Computer chose ${computerSelection})`
+    const SHOW_CHOICES = `(Player chose ${playerSelection} and Computer chose ${computerSelection})`
     const TIE_MSG = "Tie";
     const WIN_MSG = "You win";
     const LOSE_MSG = "You lose";
@@ -40,9 +43,8 @@ function playRound(playerSelection, computerSelection) {
     if ((playerSelection === "rock" && computerSelection === "rock") ||
         (playerSelection === "paper" && computerSelection === "paper") ||
         (playerSelection === "scissors" && computerSelection === "scissors")) {
-        console.log(WIN_MSG);
+        console.log(TIE_MSG);
         console.log(SHOW_CHOICES);
-        playerScore += 1;
         showScores();
     } else if ((playerSelection === "rock" && computerSelection === "paper") ||
                (playerSelection === "paper" && computerSelection === "scissors") ||
@@ -54,8 +56,9 @@ function playRound(playerSelection, computerSelection) {
     } else if ((playerSelection === "rock" && computerSelection === "scissors") ||
                (playerSelection === "paper" && computerSelection === "rock") ||
                (playerSelection === "scissors" && computerSelection === "paper")) {
-        console.log(TIE_MSG);
+        console.log(WIN_MSG);
         console.log(SHOW_CHOICES);
+        playerScore += 1;
         showScores();
     }
 }
@@ -72,11 +75,11 @@ function game() {
     
 
     for (let i = 0; i < 5; i++) {   
-        console.log(`round ${i + 1}:`);
+        console.log(`ROUND ${i + 1}:`);
         playRound(playerPlay(), computerPlay());
     } 
 
-    console.log("Final score: ");
+    console.log("FINAL SCORE: ");
     declareWinner();
 
       
