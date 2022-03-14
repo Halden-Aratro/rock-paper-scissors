@@ -3,8 +3,9 @@ let playerScore = 0;
 
 let computerSelection;
 
+//Get computer choice
 function computerPlay() {
-    let randomNum = Math.floor(Math.random() *3);
+    let randomNum = Math.floor(Math.random() *3); //get random number from 0 to 2
     switch(randomNum) {
         case 0:
             return computerSelection = "rock";
@@ -18,22 +19,15 @@ function computerPlay() {
     }
 }
 
+//Get player's choice 
 function playerPlay() {
     let playerSelection = prompt("chose rock, paper or scissors");
     playerSelection = playerSelection.toLowerCase();
 
-    //Check for spelling mistakes (loop and if conditionals do not work yet)
-/*     if ((playerSelection !== "rock") ||
-        (playerSelection !== "paper") ||
-        (playerSelection !== "scissors")) {
-            prompt("only enter rock, paper or scissors without spelling mistakes")
-        } else {
-            prompt("chose rock, paper or scissors");
-        }; */
- 
     return playerSelection;
 }
 
+//For beginners, dealing with strings is easier than dealing with int in arrays
 function playRound(playerSelection, computerSelection) {
     const SHOW_CHOICES = `(Player chose ${playerSelection} and Computer chose ${computerSelection})`
     const TIE_MSG = "Tie";
@@ -63,16 +57,14 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-
+//Start the game over
 function resetScores() {
     playerScore = 0;
     computerScore = 0;
 }
- 
+
 function game() {
     resetScores();
-
-    
 
     for (let i = 0; i < 5; i++) {   
         console.log(`ROUND ${i + 1}:`);
@@ -82,15 +74,14 @@ function game() {
     console.log("FINAL SCORE: ");
     declareWinner();
 
-      
+    window.addEventListener("")
 }
+
 
 function showScores() {
     const SCORES = `player score: ${playerScore} | computer score: ${computerScore}`;
-    
     console.log(SCORES);
 }
-
 
 function declareWinner() {
     const SCORES = `player score: ${playerScore} | computer score: ${computerScore}`;
@@ -102,7 +93,7 @@ function declareWinner() {
     } else {
         console.log("This is a final tie " + SCORES);
     }
-
 }
 
-game();
+
+game(); 
