@@ -3,9 +3,8 @@ let playerScore = 0;
 
 let computerSelection;
 
-//Get computer choice
 function computerPlay() {
-    let randomNum = Math.floor(Math.random() *3); //get random number from 0 to 2
+    let randomNum = Math.floor(Math.random() *3);
     switch(randomNum) {
         case 0:
             return computerSelection = "rock";
@@ -19,7 +18,6 @@ function computerPlay() {
     }
 }
 
-//Get player's choice 
 function playerPlay() {
     let playerSelection = prompt("chose rock, paper or scissors");
     playerSelection = playerSelection.toLowerCase();
@@ -62,6 +60,7 @@ function resetScores() {
     playerScore = 0;
     computerScore = 0;
 }
+
 
 function game() {
     resetScores();
