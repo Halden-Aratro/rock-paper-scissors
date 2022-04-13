@@ -2,6 +2,9 @@ let computerScore = 0;
 let playerScore = 0;
 
 let computerSelection;
+let playerSelection;
+
+
 
 function computerPlay() {
     let randomNum = Math.floor(Math.random() *3);
@@ -18,12 +21,10 @@ function computerPlay() {
     }
 }
 
-function playerPlay() {
-    let playerSelection = prompt("chose rock, paper or scissors");
-    playerSelection = playerSelection.toLowerCase();
+/* function playerPlay() {
+    playerSelection = this.dataset.btn;
+} */
 
-    return playerSelection;
-}
 
 //For beginners, dealing with strings is easier than dealing with int in arrays
 function playRound(playerSelection, computerSelection) {
@@ -62,37 +63,58 @@ function resetScores() {
 }
 
 
+
 function game() {
     resetScores();
-
     for (let i = 0; i < 5; i++) {   
         console.log(`ROUND ${i + 1}:`);
         playRound(playerPlay(), computerPlay());
     } 
-
-    console.log("FINAL SCORE: ");
     declareWinner();
-
-    window.addEventListener("")
 }
+
 
 
 function showScores() {
     const SCORES = `player score: ${playerScore} | computer score: ${computerScore}`;
-    console.log(SCORES);
+
+    roundScores.textContent(`${SCORES}`);
 }
+
+
 
 function declareWinner() {
     const SCORES = `player score: ${playerScore} | computer score: ${computerScore}`;
 
     if (playerScore > computerScore) {
-        console.log("You won the game!\n" + SCORES);
+        finalMsg.textContent = "You won the game!\n";
+        finalScore.textContent = SCORES;
     } else if (playerScore < computerScore) {
-        console.log("You lost the game! Really?!\n" + SCORES);
+        finalMsg.textContent = "You lost the game! Really?!\n";
+        finalScore.textContent = SCORES;
     } else {
-        console.log("This is a final tie " + SCORES);
+        finalMsg.textContent = "This is a tie\n ";
+        finalScore.textContent = SCORES;
     }
 }
 
 
 game(); 
+
+
+
+const rockBtn = document.querySelector('#rockBtn');   
+const paperBtn = document.querySelector('#paperBtn');
+const scissorsBtn = document.querySelector('#scissorsBtn');
+
+const roundPlay = document.querySelector('#roundPlay');
+const roundScores = document.querySelector('#roundScores');
+const finalScore = document.querySelector('#finalScore');
+const finalMsg = document.querySelector('#finalMsg');
+
+
+
+rockBtn.addEventListener('click', () => {
+    playRound('rock', computerSelection)})
+paperBtn.addEventListener('click', (e) => {console.log(e)});
+scissorsBtn.addEventListener('click', (e) => {console.log(e)});

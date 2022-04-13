@@ -3,10 +3,59 @@
     <head>
         <title>rock paper scissors</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&display=swap" rel="stylesheet"> 
     </head>
     <body>
-        <script src="scripttwo.js"></script>
+        <div id="globalContainer">
+            <div id="titleContainer" class="container">
+                <h1 class="center">Beat the rock</h1>
+            </div>
+            <div id="rulesContainer" class="container">
+                <p>Click on rock, paper or scissors to start the game.</p>
+                <p>The first to reach 5 wins</p>
+            </div>
+            <div id="imgContainer" class="container">
+                <img src="images/rock.png" id="rockBtn" class="optionBtn">
+                <img src="images/paper.png" id="paperBtn" class="optionBtn">
+                <img src="images/scissors.png" id="scissorsBtn" class="optionBtn">
+            </div>
 
+            
+            <div id="resultsContainer">
+                <div id="roundPlay" class="container">
+                    <div id="playerPlay"></div>
+                    <p>VS</p>
+                    <div id="computerPlay"></div>
+                </div>
+                <div id="roundScoresContainer"></div>
+                    <p id ="roundScore"></p>
+                <div id="finalScoreDiv">
+                    <p id="finalScoreText" class="center">FINAL SCORES</p>
+                    <div id=finalScoresContainer class="container">
+                        <div id="playerScore" class="container">
+                            <p>Player score: </p>
+                            <p class="red">0</p>
+                        </div>
+                        <div id="computerScore" class="container">
+                            <p>Computer score: </p>
+                            <p class="blue">0</p>
+                        </div>
+                    </div>
+                </div>
+                <p id="finalMsg"></p>
+            </div>
+        </div>
 
+        <div id="popupContainer" class="hidden">
+            <div id ="restartPopup" class="hidden"></div>
+            <div id="endMsg" class="hidden"></div>
+            <button id="restartBtn" class="hidden">RESTART GAME</button>
+        </div>
+        
     </body>
 </html>
