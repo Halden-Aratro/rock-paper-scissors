@@ -66,17 +66,15 @@ function playRound(playerSelection) {
     updateScore(playerScore, computerScore);
 }
 
-//score plays
 function updateScore (playerScore,computerScore) {
-    //show final score
-    const pScore = document.querySelector("#playerScore");
-    const cScore = document.querySelector("#computerScore");
+    const pScore = document.querySelector("#pScore");
+    const cScore = document.querySelector("#cScore");
 
-    pScore.textContent = `Player score: ${playerScore}`;
-    cScore.textContent = `Computer score: ${computerScore}`;
+    pScore.textContent = `${playerScore}`;
+    cScore.textContent = `${computerScore}`;
 
     if(computerScore === 5 || playerScore === 5) {
-        setTimeout(() => endOfGame(playerScore, computerScore), 100);
+        setTimeout(() => endOfGame(playerScore, computerScore), 2000);
     }
 }
 
@@ -106,7 +104,8 @@ function endOfGame () {
 function showMoves (playerSelection, computerSelection) {
     const playerMove = document.querySelector("#playerPlay");
     const computerMove = document.querySelector("#computerPlay");
-
+    playerMove.className = "";
+    computerMove.className = "";
     playerMove.classList.add(playerSelection);
     computerMove.classList.add(computerSelection);
 }
