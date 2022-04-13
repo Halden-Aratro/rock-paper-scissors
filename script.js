@@ -28,12 +28,15 @@ const scissorsBtn = document.querySelector('#scissorsBtn');
 
 rockBtn.addEventListener('click', () => {
     playRound("rock");
+    playerSelection = "rock";
 })
 paperBtn.addEventListener('click', () => {
     playRound("paper");
+    playerSelection = "paper";
 })
 scissorsBtn.addEventListener('click', () => {
     playRound("scissors");
+    playerSelection = "scissors";
 })
 
 
@@ -42,7 +45,7 @@ function playRound(playerSelection) {
     computerSelection = computerPlay();
     const rScore = document.querySelector("#roundScore");
 
-    showMoves();
+    showMoves(playerSelection, computerSelection);
 
     if ((playerSelection === "rock" && computerSelection === "rock") ||
         (playerSelection === "paper" && computerSelection === "paper") ||
@@ -77,9 +80,6 @@ function updateScore (playerScore,computerScore) {
     }
 }
 
-//const buttons = document.querySelectorAll('optionBtn');
-//const finalMsg = document.querySelector('#finalMsg');
-
 function endOfGame () {
     const gContainer = document.querySelector("#globalContainer");
     const ppContainer = document.querySelector("#popupContainer");
@@ -109,9 +109,4 @@ function showMoves (playerSelection, computerSelection) {
 
     playerMove.classList.add(playerSelection);
     computerMove.classList.add(computerSelection);
-}
-
-function showPopup () {
-    const popup = document.querySelector("#popupContainer");
-    popup.classList.add("show");
 }
