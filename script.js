@@ -74,7 +74,7 @@ function updateScore (playerScore,computerScore) {
     cScore.textContent = `${computerScore}`;
 
     if(computerScore === 5 || playerScore === 5) {
-        setTimeout(() => endOfGame(playerScore, computerScore), 2000);
+        setTimeout(() => endOfGame(playerScore, computerScore), 1000);
     }
 }
 
